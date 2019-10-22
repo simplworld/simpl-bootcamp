@@ -10,7 +10,8 @@ class AlertButton extends React.Component {
   render() {
     return (
       <button
-        onClick={this.handleClick}>
+        onClick={this.handleClick}
+      >
         {this.props.children}
       </button>
     )

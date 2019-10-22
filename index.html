@@ -224,6 +224,70 @@ $ docker-compose up
         <p class="example">code_examples/react1.js</p>
       </section>
 
+      <section data-background="#36c945" data-transition="fade-in">
+        <h1>WAIT A SECOND!!!</h1>
+        <p>Didn't PHP and the like teach us that mixing code and presentation is a bad idea?</p>
+      </section>
+
+      <section data-background="#a90533">
+        <h2>JSX - Somehow it works!</h2>
+        <ul>
+          <li>Presentation elements are defined along with data/actions</li>
+          <li>Data/actions passed down component heirarchy</li>
+          <li>Small reusable components that build up to a larger whole</li>
+        </ul>
+      </section>
+
+      <section data-background="#36c945" data-transition="fade-in">
+        <h2>Quick Primer on Old JavaScript (ES5) to New Javascript (ES6/ES7+)</h2>
+      </section>
+
+      <section>
+        <h4>Old Javascript</h4>
+        <pre><code class="hljs">
+          function add(x, y) {
+            return x + y;
+          }
+        </code></pre>
+        <h4>New Javascript - Arrow Functions</h4>
+        <pre><code class="hljs">
+          const add = (x, y) => {
+            return x + y;
+          }
+        </code></pre>
+      </section>
+
+      <section>
+        <h4>Old Javascript</h4>
+        <pre><code class="hljs">
+          var MyObject = {foo: 1, bar: 2};
+          var foo = MyObject.foo;
+          var bar = MyObject.bar;
+        </code></pre>
+        <h4>New Javascript</h4>
+        <pre><code class="hljs javascript">
+          let MyObject = {foo: 1, bar: 2};
+          let { foo, bar } = MyObject;
+        </code></pre>
+        <p>
+          'let' creates a block scoped variable.
+        </p>
+      </section>
+
+      <section data-background="#36c945" data-transition="fade-in">
+        <h2>Component Heirarchy</h2>
+        <h3>Keeps Things Sane</h3>
+      </section>
+
+      <section>
+        <img src="images/React_Example.png" />
+      </section>
+
+      <section>
+        <h3>React App Example</h3>
+        <p class="example">code_examples/react2.js</p>
+      </section>
+
       <section>
         <h4>Code Example</h4>
         <pre><code class="hljs" data-line-numbers="4">
