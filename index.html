@@ -88,12 +88,58 @@
               href="https://desktop.github.com">https://desktop.github.com</a></li>
         </ul>
       </section>
-      <section data-background="#004785">
-        <h2>Setup simpl-games-api</h2>
+      <section data-background="#a90533">
+        <h1>High Level Overview</h1>
       </section>
+      <section data-background="#a90533">
+        <h2>Main Communication Steps</h2>
+        <ol>
+          <li>User's browser loads game from UI service</li>
+          <li>User logins via UI service which checks the authentication against the user info in API</li>
+          <li>Once authenticated, User's browser makes websocket connection to Model service</li>
+          <li>Browser loads all needed game data over websocket</li>
+          <li>From here on all communication is over websocket to Model service</li>
+        </ol>
+      </section>
+
       <section>
         <img src="images/Connectivity.png" />
       </section>
+      <!-- setup-simpl-games-api -->
+      <section data-background="#004785">
+        <h3>Clone Repo and Get Started</h3>
+        <pre><code class="hljs">
+$ git clone https://github.com/simplworld/simpl-games-api.git
+        </code></pre>
+        <pre style="font-size: 32px"><code class="hljs">
+$ cd simpl-games-api
+$ git checkout v0.7.13
+$ docker-compose up
+          </code></pre>
+      </section>
+
+      <section data-background="#004785">
+        <h2>Check the setup</h2>
+        <h4>Browse to <a href="http://localhost:8100/">http://localhost:8100/</a></h4>
+      </section>
+
+      <section data-background="#004785">
+        <h3>You should see a page like</h3>
+        <img src="images/simpl-api-1.png" />
+      </section>
+
+      <section data-background="#004785">
+        <h2>Setup simpl-games-api</h2>
+        <p>This API is the data storage for SIMPL</p>
+        <ul>
+          <li>Users</li>
+          <li>Games</li>
+          <li>Relationship of User to Worlds and Runs</li>
+          <li>Decisions and Results</li>
+          <li>Multiple SIMPL games can share the same API service</li>
+        </ul>
+      </section>
+
       <section data-background="#004785">
         <h1>Create demo user</h1>
         <h3>Need a user to play</h3>
