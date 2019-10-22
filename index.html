@@ -39,9 +39,9 @@
       <section data-background="#004785">
         <h1>SIMPL Bootcamp</h1>
         <h3>Developing SIMPL Applications</h3>
-        <p class="red">Add Wharton and SIMPL Logos</p>
+        <img src="images/simpl_logo.png" style="border: none; background: none;" />
       </section>
-      <section data-background="#004785">
+      <section data-background=" #004785">
         <h1>Tech Setup</h1>
         <ul>
           <li class="fragment">Docker</li>
@@ -107,6 +107,18 @@
       </section>
       <!-- setup-simpl-games-api -->
       <section data-background="#004785">
+        <h2>Setup simpl-games-api</h2>
+        <p>This API is the data storage for SIMPL</p>
+        <ul>
+          <li>Users</li>
+          <li>Games</li>
+          <li>Relationship of User to Worlds and Runs</li>
+          <li>Decisions and Results</li>
+          <li>Multiple SIMPL games can share the same API service</li>
+        </ul>
+      </section>
+
+      <section data-background="#004785">
         <h3>Clone Repo and Get Started</h3>
         <pre><code class="hljs">
 $ git clone https://github.com/simplworld/simpl-games-api.git
@@ -129,18 +141,6 @@ $ docker-compose up
       </section>
 
       <section data-background="#004785">
-        <h2>Setup simpl-games-api</h2>
-        <p>This API is the data storage for SIMPL</p>
-        <ul>
-          <li>Users</li>
-          <li>Games</li>
-          <li>Relationship of User to Worlds and Runs</li>
-          <li>Decisions and Results</li>
-          <li>Multiple SIMPL games can share the same API service</li>
-        </ul>
-      </section>
-
-      <section data-background="#004785">
         <h1>Create demo user</h1>
         <h3>Need a user to play</h3>
         <p>
@@ -148,6 +148,25 @@ $ docker-compose up
           user. Here we just need to setup at user to demo the game.
         </p>
       </section>
+      <section data-background="#004785">
+        <h2>Create Superuser</h2>
+        <pre><code class="hljs">
+  $ make shell
+  $ ./manage.py createsuperuser
+          </code></pre>
+        <p>Enter email address and password when prompted.</p>
+        <p>This user is your admin account to the SIMPL Games API</p>
+      </section>
+      <section data-background="#004785">
+        <h2>Login to API Admin</h2>
+        <h3>Browse to <a href="http://localhost:8100/admin/">http://localhost:8100/admin/</a></h3>
+      </section>
+      <section data-background="#004785">
+        <h2>Django Admin</h2>
+        <img src="images/django-admin-login.png" />
+        <p>Login with the email and password you used to create your superuser</p>
+      </section>
+
       <section>
         <h4>Code Example</h4>
         <pre><code class="hljs">
