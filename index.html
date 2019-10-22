@@ -274,6 +274,30 @@ $ docker-compose up
         </p>
       </section>
 
+      <section>
+        <h4>Old Javascript</h4>
+        <pre><code class="hljs">
+          var someModule = require(./SomeModule);
+        </code></pre>
+        <h4>New Javascript</h4>
+        <pre><code class="hljs">
+          import someModule from './someModule';
+        </code></pre>
+      </section>
+
+      <section>
+        <h4>Old Javascript</h4>
+        <pre><code class="hljs">
+  const first = "Frank";
+  const last = "Wiles
+
+  const myName = "FullName: " + a + " " + b;
+        </code></pre>
+        <h4>New Javascript</h4>
+        <pre><code class="hljs">
+  const myText = `FullName: ${a} ${b}`;
+        </code></pre>
+      </section>
       <section data-background="#36c945" data-transition="fade-in">
         <h2>Component Heirarchy</h2>
         <h3>Keeps Things Sane</h3>
