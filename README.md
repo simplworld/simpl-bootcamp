@@ -1,4 +1,4 @@
-# SIMPL Bootcamp
+# Simpl Bootcamp
 
 Presentation materials.
 
