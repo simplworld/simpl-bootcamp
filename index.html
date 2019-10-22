@@ -2,72 +2,109 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>SIMPL Bootcamp</title>
+  <title>SIMPL Bootcamp</title>
 
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/black.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
 
-	<!-- Theme used for syntax highlighting of code -->
-	<link rel="stylesheet" href="lib/css/monokai.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css">
 
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
-	<style>
-		.red {
-			color: #a90533;
-		}
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+  <style>
+    .red {
+      color: #a90533;
+    }
 
-		.blue {
-			color: #004785;
-		}
-	</style>
+    .blue {
+      color: #004785;
+    }
+  </style>
 </head>
 
 <body>
-	<div class="reveal">
-		<div class="slides">
-			<section data-background="#004785">
-				<h1>SIMPL Bootcamp</h1>
-				<h3>Developing SIMPL Applications</h3>
-				<p class="red">Add Wharton and SIMPL Logos</p>
-			</section>
-			<section data-background="#004785">
-				<h1>Tech Setup</h1>
-				<ul>
-					<li class="fragment">Docker</li>
-					<li class="fragment">Code Editor</li>
-					<li class="fragment">Git</li>
-					<li class="fragment">simpl-games-api service</li>
-				</ul>
-			</section>
-			<section data-background="#004785">
-				<h1>Docker</h1>
-				<h3>What is it and why is it useful</h3>
-			</section>
-			<section data-background="#004785">Verifying Docker</section>
-			<section data-background="#004785">Brief intro to Git</section>
-			<section data-background="#004785">Setup simpl-games-api</section>
-			<section data-background="#004785">
-				<h1>Create demo user</h1>
-				<h3>Need a user to play</h3>
-				<p>
-					All access to SIMPL games is by using an authenticated
-					user. Here we just need to setup at user to demo the game.
-				</p>
-			</section>
-			<section>
-				<h4>Code Example</h4>
-				<pre><code class="hljs">
+  <div class="reveal">
+    <div class="slides">
+      <section data-background="#004785">
+        <h1>SIMPL Bootcamp</h1>
+        <h3>Developing SIMPL Applications</h3>
+        <p class="red">Add Wharton and SIMPL Logos</p>
+      </section>
+      <section data-background="#004785">
+        <h1>Tech Setup</h1>
+        <ul>
+          <li class="fragment">Docker</li>
+          <li class="fragment">Code Editor</li>
+          <li class="fragment">Git</li>
+          <li class="fragment">simpl-games-api service</li>
+        </ul>
+      </section>
+      <section data-background="#004785">
+        <h1>Docker</h1>
+        <h3>What is it and why is it useful</h3>
+      </section>
+      <section data-background="#004785">
+        <h2>Verifying Your Docker Setup</h2>
+        <h4>Run this locally in a termainl</h4>
+        <pre><code class="hljs">
+    docker run -p "80:80" frankwiles/hello-docker:latest
+        </code></pre>
+        <p>And then browse to <a href="http://localhost/">http://localhost/</a></p>
+      </section>
+      <section data-background="#004785">
+        <h3>You should see this</h3>
+        <img src="images/hello-docker.png" />
+      </section>
+      <section data-background="#004785">
+        <h1>Code Editor</h1>
+        <h3>You're going to need one</h3>
+        <ul>
+          <li>VS Code</li>
+          <li>Subltime Text 2</li>
+          <li>vi / emacs / etc</li>
+        </ul>
+      </section>
+      <section data-background="#004785">
+        <h1>Git</h1>
+      </section>
+      <section data-background="#004785">
+        <h3>Git Resources</h3>
+        <ul>
+          <li>Cheatsheet - <a
+              href="https://education.github.com/git-cheat-sheet-education.pdf">https://education.github.com/git-cheat-sheet-education.pdf</a>
+          </li>
+          <li>Github Desktop Client (<em>optional</em>) - <a
+              href="https://desktop.github.com">https://desktop.github.com</a></li>
+        </ul>
+      </section>
+      <section data-background="#004785">
+        <h2>Setup simpl-games-api</h2>
+      </section>
+      <section>
+        <img src="images/Connectivity.png" />
+      </section>
+      <section data-background="#004785">
+        <h1>Create demo user</h1>
+        <h3>Need a user to play</h3>
+        <p>
+          All access to SIMPL games is by using an authenticated
+          user. Here we just need to setup at user to demo the game.
+        </p>
+      </section>
+      <section>
+        <h4>Code Example</h4>
+        <pre><code class="hljs">
 class Game(AbstractTimeStampedModel):
     """ Game Model """
     name = models.CharField(max_length=100, unique=True)
@@ -81,10 +118,10 @@ class Game(AbstractTimeStampedModel):
 
     objects = managers.ActiveQuerySet.as_manager()
 				</code></pre>
-			</section>
-			<section>
-				<h4>Code Example</h4>
-				<pre><code class="hljs" data-line-numbers="4">
+      </section>
+      <section>
+        <h4>Code Example</h4>
+        <pre><code class="hljs" data-line-numbers="4">
 class Game(AbstractTimeStampedModel):
     """ Game Model """
     name = models.CharField(max_length=100, unique=True)
@@ -98,10 +135,10 @@ class Game(AbstractTimeStampedModel):
 
     objects = managers.ActiveQuerySet.as_manager()
 				</code></pre>
-			</section>
-			<section>
-				<h4>Code Example</h4>
-				<pre><code class="hljs" data-line-numbers="5-9">
+      </section>
+      <section>
+        <h4>Code Example</h4>
+        <pre><code class="hljs" data-line-numbers="5-9">
 class Game(AbstractTimeStampedModel):
     """ Game Model """
     name = models.CharField(max_length=100, unique=True)
@@ -115,10 +152,10 @@ class Game(AbstractTimeStampedModel):
 
     objects = managers.ActiveQuerySet.as_manager()
 				</code></pre>
-			</section>
-			<section>
-				<h4>Code Example</h4>
-				<pre><code class="hljs" data-line-numbers="10">
+      </section>
+      <section>
+        <h4>Code Example</h4>
+        <pre><code class="hljs" data-line-numbers="10">
 class Game(AbstractTimeStampedModel):
     """ Game Model """
     name = models.CharField(max_length=100, unique=True)
@@ -132,26 +169,26 @@ class Game(AbstractTimeStampedModel):
 
     objects = managers.ActiveQuerySet.as_manager()
 				</code></pre>
-			</section>
-		</div>
-	</div>
+      </section>
+    </div>
+  </div>
 
-	<script src="js/reveal.js"></script>
+  <script src="js/reveal.js"></script>
 
-	<script>
-		// More info about config & dependencies:
-		// - https://github.com/hakimel/reveal.js#configuration
-		// - https://github.com/hakimel/reveal.js#dependencies
-		Reveal.initialize({
-			hash: true,
-			dependencies: [
-				{ src: 'plugin/markdown/marked.js' },
-				{ src: 'plugin/markdown/markdown.js' },
-				{ src: 'plugin/notes/notes.js', async: true },
-				{ src: 'plugin/highlight/highlight.js', async: true }
-			]
-		});
-	</script>
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      hash: true,
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true }
+      ]
+    });
+  </script>
 </body>
 
 </html>
