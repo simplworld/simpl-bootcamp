@@ -30,6 +30,17 @@
     .blue {
       color: #004785;
     }
+
+    .green {
+      color: #36c945;
+    }
+
+    p.example {
+      padding: 15px;
+      background: #aaa;
+      text-decoration: italic;
+      color: black;
+    }
   </style>
 </head>
 
@@ -148,6 +159,7 @@ $ docker-compose up
           user. Here we just need to setup at user to demo the game.
         </p>
       </section>
+
       <section data-background="#004785">
         <h2>Create Superuser</h2>
         <pre><code class="hljs">
@@ -167,23 +179,51 @@ $ docker-compose up
         <p>Login with the email and password you used to create your superuser</p>
       </section>
 
-      <section>
-        <h4>Code Example</h4>
-        <pre><code class="hljs">
-class Game(AbstractTimeStampedModel):
-    """ Game Model """
-    name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(
-        max_length=250,
-        blank=True,
-        unique=True
-    )
-    active = models.BooleanField(default=True)
-    data = JSONField(default=dict, blank=True)
+      <section data-background="#a90533">
+        <h1>Blackjack User Interface</h1>
+      </section>
 
-    objects = managers.ActiveQuerySet.as_manager()
+      <section data-background="#004785">
+        <h1>ReactJS</h1>
+        <h3><a href="https://reactjs.org">https://reactjs.org</a></h3>
+        <p>Released as Open Source by Facebook in 2013</p>
+      </section>
+
+      <!-- React -->
+      <section data-background="#004785">
+        <h1>React</h1>
+        <ul>
+          <li>Declarative UI</li>
+          <li>Reusable Components</li>
+          <li>One way data flow</li>
+          <li>Modern Javascript (ES6+)</li>
+        </ul>
+      </section>
+
+      <section data-background="#36c945" data-transition="fade-in">
+        <h1>Old School vs New React</h1>
+      </section>
+
+      <section>
+        <h4>Old School Example</h4>
+        <pre><code class="hljs" style="font-size: 26px">
+    <button id="alert">Show Alert!</button>
+
+    <script>
+      var button = document.getElementById("alert");
+
+      button.addEventListener("click", function () {
+        alert("It works!");
+      });
+    </script>
 				</code></pre>
       </section>
+
+      <section>
+        <h3>React JSX Example</h3>
+        <p class="example">code_examples/react1.js</p>
+      </section>
+
       <section>
         <h4>Code Example</h4>
         <pre><code class="hljs" data-line-numbers="4">
