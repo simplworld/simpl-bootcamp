@@ -136,7 +136,7 @@ $ git clone https://github.com/simplworld/simpl-games-api.git
         </code></pre>
         <pre style="font-size: 32px"><code class="hljs">
 $ cd simpl-games-api
-$ git checkout v0.7.13
+$ git checkout -b simpl-bootcamp origin/simpl-bootcamp
 $ docker-compose up
           </code></pre>
       </section>
@@ -157,7 +157,8 @@ $ docker-compose up
   (your terminal)$ docker-compose run --rm api bash
   (container termainl)$ ./manage.py createsuperuser
           </code></pre>
-        <p>Enter email address and password when prompted.</p>
+        <p>This creates a temporary container off our image and gives you a Linux shell in it.
+          Enter email address and password when prompted.</p>
         <p>This user is your admin account to the Simpl Games API</p>
       </section>
 
@@ -351,8 +352,6 @@ $ docker-compose up
 {
   items: ["coffee", "tea", "espresso"],
   user: {
-    first_name: null,
-    last_name: null,
     email: null,
     loggedIn: false
   }
@@ -370,9 +369,32 @@ $ docker-compose up
       </section>
 
       <section>
-        <h4>Reducer Examples</h4>
-        <pre><code class="hljs json">
-  TBD
+        <h4>Reducer Example - Items</h4>
+        <pre><code class="hljs javascript">
+function items(state = [], action) {
+  switch (action.type) {
+    case 'ADD_ITEM':
+       return [...state, action.data]
+    default:
+      return state
+  }
+}
+				</code></pre>
+      </section>
+
+      <section>
+        <h4>Reducer Example - User</h4>
+        <pre><code class="hljs javascript">
+function user(state = {email: null, loggedIn: false}, action) {
+  switch (action.type) {
+    case 'SET_USER':
+       return {...state, email: action.email}
+    case 'LOGIN_USER':
+       return {...state, loggedIn: true}
+    default:
+      return state
+  }
+}
 				</code></pre>
       </section>
 
