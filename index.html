@@ -368,39 +368,24 @@ $ docker-compose up
 { type: "LOGIN_USER", sessionId: "lfyBnPmRzbUQims" }
 				</code></pre>
       </section>
-      <section>
-        <h4>Code Example</h4>
-        <pre><code class="hljs" data-line-numbers="5-9">
-class Game(AbstractTimeStampedModel):
-    """ Game Model """
-    name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(
-        max_length=250,
-        blank=True,
-        unique=True
-    )
-    active = models.BooleanField(default=True)
-    data = JSONField(default=dict, blank=True)
 
-    objects = managers.ActiveQuerySet.as_manager()
+      <section>
+        <h4>Reducer Examples</h4>
+        <pre><code class="hljs json">
+  TBD
 				</code></pre>
       </section>
-      <section>
-        <h4>Code Example</h4>
-        <pre><code class="hljs" data-line-numbers="10">
-class Game(AbstractTimeStampedModel):
-    """ Game Model """
-    name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(
-        max_length=250,
-        blank=True,
-        unique=True
-    )
-    active = models.BooleanField(default=True)
-    data = JSONField(default=dict, blank=True)
 
-    objects = managers.ActiveQuerySet.as_manager()
-				</code></pre>
+      <section data-background="#004785">
+        <h1>Dive into React App</h1>
+      </section>
+
+      <section data-background="#004785">
+        <h1>Simpl Modelservice</h1>
+      </section>
+
+      <section data-background="#004785">
+        <h1>Connect UI to Model</h1>
       </section>
     </div>
   </div>
