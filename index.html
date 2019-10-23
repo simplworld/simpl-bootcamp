@@ -152,15 +152,6 @@ $ docker-compose up
       </section>
 
       <section data-background="#004785">
-        <h1>Create demo user</h1>
-        <h3>Need a user to play</h3>
-        <p>
-          All access to Simpl games is by using an authenticated
-          user. Here we just need to setup at user to demo the game.
-        </p>
-      </section>
-
-      <section data-background="#004785">
         <h2>Create Superuser</h2>
         <pre><code class="hljs">
   $ make shell
@@ -169,6 +160,7 @@ $ docker-compose up
         <p>Enter email address and password when prompted.</p>
         <p>This user is your admin account to the Simpl Games API</p>
       </section>
+
       <section data-background="#004785">
         <h2>Login to API Admin</h2>
         <h3>Browse to <a href="http://localhost:8100/admin/">http://localhost:8100/admin/</a></h3>
@@ -337,21 +329,43 @@ $ docker-compose up
         <p class="example">code_examples/react2.js</p>
       </section>
 
-      <section>
-        <h4>Code Example</h4>
-        <pre><code class="hljs" data-line-numbers="4">
-class Game(AbstractTimeStampedModel):
-    """ Game Model """
-    name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(
-        max_length=250,
-        blank=True,
-        unique=True
-    )
-    active = models.BooleanField(default=True)
-    data = JSONField(default=dict, blank=True)
+      <section data-background="#004785">
+        <h1>Redux</h1>
+        <p>One way data flow pattern used by React</p>
+        <p><a href="https://redux.js.org">https://redux.js.org</a></p>
+      </section>
 
-    objects = managers.ActiveQuerySet.as_manager()
+      <section data-background="#004785">
+        <h1>Redux Explained</h1>
+        <ul>
+          <li>One global <em>store</em> per app</li>
+          <li>Actions indicate what happened and any associated data</li>
+          <li>Reducers, usually broken up by type of data, included app or feature look for actions and make
+            changes to the store</li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Store Example</h4>
+        <pre><code class="hljs json">
+{
+  items: ["coffee", "tea", "espresso"],
+  user: {
+    first_name: null,
+    last_name: null,
+    email: null,
+    loggedIn: false
+  }
+}
+				</code></pre>
+      </section>
+
+      <section>
+        <h4>Action Examples</h4>
+        <pre><code class="hljs json">
+{ type: "ADD_ITEM", data: "danish" }
+{ type: "SET_USER", email: "frank@revsys.com" }
+{ type: "LOGIN_USER", sessionId: "lfyBnPmRzbUQims" }
 				</code></pre>
       </section>
       <section>
