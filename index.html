@@ -82,7 +82,7 @@
         <h3>You're going to need one</h3>
         <ul>
           <li>VS Code</li>
-          <li>Subltime Text 2</li>
+          <li>Sublime Text 2</li>
           <li>vi / emacs / etc</li>
         </ul>
       </section>
@@ -154,8 +154,8 @@ $ docker-compose up
       <section data-background="#004785">
         <h2>Create Superuser</h2>
         <pre><code class="hljs">
-  $ make shell
-  $ ./manage.py createsuperuser
+  (your terminal)$ docker-compose run --rm api bash
+  (container termainl)$ ./manage.py createsuperuser
           </code></pre>
         <p>Enter email address and password when prompted.</p>
         <p>This user is your admin account to the Simpl Games API</p>
