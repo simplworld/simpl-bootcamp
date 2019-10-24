@@ -41,6 +41,21 @@
       text-decoration: italic;
       color: black;
     }
+
+    p.small {
+      font-size: 1.5rem;
+    }
+
+    span.code {
+      font-family: monospace;
+      color: #aaa;
+      padding: 5px;
+    }
+
+    a.file {
+      font-family: monospace;
+      font-size: 1.5rem;
+    }
   </style>
 </head>
 
@@ -139,6 +154,10 @@ $ cd simpl-games-api
 $ git checkout -b simpl-bootcamp origin/simpl-bootcamp
 $ docker-compose up
           </code></pre>
+        <p class="small">
+          NOTE: Do not rename the checkout, it must be named
+          <span class="code">simpl-games-api</span>
+        </p>
       </section>
 
       <section data-background="#004785">
@@ -402,11 +421,94 @@ function user(state = {email: null, loggedIn: false}, action) {
         <h1>Dive into React App</h1>
       </section>
 
-      <section data-background="#004785">
-        <h1>Simpl Modelservice</h1>
+      <section>
+        <h3>Django Routing</h3>
+        <pre><code class="hljs python">urlpatterns = [
+      url(r"^api/", include(("users.urls", "users_api"))),
+      url(r"^admin/", admin.site.urls),
+      re_path(
+          r"^static/(?P<path>.*)$",
+          serve,
+          kwargs={
+            "document_root": settings.STATIC_ROOT,
+            "show_indexes": True
+          },
+      ),
+      url(r"^.*$", TemplateView.as_view(
+        template_name="core/index.html"
+      )),
+]
+        </code></pre>
+        <a href="https://github.com/simplworld/simpl-blackjack-ui/blob/master/blackjack_ui/urls.py"
+          class="file">blackjack_ui/urls.py</a>
       </section>
 
+      <section>
+        <h3>Django Routing</h3>
+        <pre><code class="hljs python" data-line-numbers="12-14">urlpatterns = [
+      url(r"^api/", include(("users.urls", "users_api"))),
+      url(r"^admin/", admin.site.urls),
+      re_path(
+          r"^static/(?P<path>.*)$",
+          serve,
+          kwargs={
+            "document_root": settings.STATIC_ROOT,
+            "show_indexes": True
+          },
+      ),
+      url(r"^.*$", TemplateView.as_view(
+        template_name="core/index.html"
+      )),
+]
+        </code></pre>
+        <p class="small">Django's routing loads this template for any path not defined above</p>
+      </section>
+
+      <section>
+        <h3>Index Template</h3>
+        <pre><code class="hljs html">
+{% load render_bundle from webpack_loader %}
+&lt;html&gt;
+&lt;head&gt;
+  <title>Wharton Blackjack</title>
+  {% render_bundle 'main' 'css' %}
+&lt;/head&gt;
+
+&lt;body&gt;
+  <div id="app"></div>
+  {% render_bundle 'main' 'js' %}
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+        <a href="https://github.com/simplworld/simpl-blackjack-ui/blob/master/core/templates/frontend/home.html"
+          class="file">core/templates/frontend/home.html</a>
+        <p class="small">
+          <span class="code">django-webpack-loader</span> knows what these
+          bundles are and what URL to load them from.
+        </p>
+      </section>
+
+      <section>
+        <h3>Note the div</h3>
+        <pre><code class="hljs html" data-line-numbers="10">
+{% load render_bundle from webpack_loader %}
+&lt;html&gt;
+&lt;head&gt;
+  <title>Wharton Blackjack</title>
+  {% render_bundle 'main' 'css' %}
+&lt;/head&gt;
+
+&lt;body&gt;
+  <div id="app"></div>
+  {% render_bundle 'main' 'js' %}
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+        <a href="https://github.com/simplworld/simpl-blackjack-ui/blob/master/core/templates/frontend/home.html"
+          class="file">core/templates/frontend/home.html</a>
+      </section>
       <section data-background="#004785">
+
         <h1>Connect UI to Model</h1>
       </section>
     </div>
