@@ -507,6 +507,28 @@ function user(state = {email: null, loggedIn: false}, action) {
         <a href="https://github.com/simplworld/simpl-blackjack-ui/blob/master/core/templates/frontend/home.html"
           class="file">core/templates/frontend/home.html</a>
       </section>
+
+      <section>
+        <h3>React entrace point</h3>
+        <pre><code class="hljs javascript">
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import { Provider } from 'react-redux';
+  import store from './store/store';
+  import App from './app';
+  import '../scss/main.scss';
+
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('app')
+  );
+        </code></pre>
+        <a class="file"
+          href="https://github.com/simplworld/simpl-blackjack-ui/blob/master/frontend/js/index.js">frontend/js/index.js</a>
+      </section>
+
       <section data-background="#004785">
 
         <h1>Connect UI to Model</h1>
