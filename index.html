@@ -131,6 +131,39 @@
       <section>
         <img src="images/Connectivity.png" />
       </section>
+
+      <section data-background="#004785">
+        <h3>WAMP</h3>
+        <ul>
+          <li>Web</li>
+          <li>Application</li>
+          <li>Message</li>
+          <li>Protocol</li>
+        </ul>
+        <p>
+          <a href="https://wamp-proto.org">https://wamp-proto.org</a>
+        </p>
+      </section>
+
+      <section data-background="#004785">
+        <h3>WAMP</h3>
+        <p>WAMP defines a lightweight protocol for doing RPC and pubsub over websockets</p>
+      </section>
+
+      <section data-background="#004785">
+        <h3>WAMP Router</h3>
+        <p>When using WAMP you need a WAMP router. Simpl uses crossbar for this.</p>
+        <p>
+          A WAMP router is responsible for terminating the websocket connections,
+          authentication, authorization, and routing messages and calls
+        </p>
+      </section>
+      <section data-background="#004785">
+        <h3>Simpl &amp; WAMP</h3>
+        <p>What we call a <em>model</em> or <em>modelservice</em> in Simpl is both
+          a crossbar WAMP router and a asyncio Python process which registers itself
+          with the router to answer WAMP calls from the UI.</p>
+      </section>
       <!-- setup-simpl-games-api -->
       <section data-background="#004785">
         <h2>Setup simpl-games-api</h2>
@@ -185,10 +218,19 @@ $ docker-compose up
         <h2>Login to API Admin</h2>
         <h3>Browse to <a href="http://localhost:8100/admin/">http://localhost:8100/admin/</a></h3>
       </section>
+
       <section data-background="#004785">
         <h2>Django Admin</h2>
         <img src="images/django-admin-login.png" />
         <p>Login with the email and password you used to create your superuser</p>
+      </section>
+
+      <section data-background="#004785">
+        <h2>Setup Our Game</h2>
+        <ol>
+          <li>Create a Game named <span class="code">Blackjack</span> with slug <span class="code">blackjack</span></li>
+          <li>Create a Run for Blackjack named <span class="code">default</span></li>
+        </ol>
       </section>
 
       <section data-background="#a90533">
