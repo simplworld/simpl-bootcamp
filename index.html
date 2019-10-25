@@ -161,12 +161,36 @@
           authentication, authorization, and routing messages and calls
         </p>
       </section>
+
+      <section data-background="#004785">
+        <img src="images/crossbar.png" />
+      </section>
+
+      <section data-background="#004785">
+        <h3>Why WAMP?</h3>
+        <ul>
+          <li>Decouples backend game logic from frontend user interface</li>
+          <li>Allows developers to build backend and frontend in a variety of languages</li>
+        </ul>
+      </section>
+
+      <section data-background="#004785">
+        <h3>WAMP Implementations</h3>
+        <ul>
+          <li>Python</li>
+          <li>Javascript</li>
+          <li>Java Go / C++ / C#</li>
+        </ul>
+        <a href="https://wamp-proto.org/implementations.html">https://wamp-proto.org/implementations.html</a>
+      </section>
+
       <section data-background="#004785">
         <h3>Simpl &amp; WAMP</h3>
         <p>What we call a <em>model</em> or <em>modelservice</em> in Simpl is both
           a crossbar WAMP router and a asyncio Python process which registers itself
           with the router to answer WAMP calls from the UI.</p>
       </section>
+
       <!-- setup-simpl-games-api -->
       <section data-background="#004785">
         <h2>Setup simpl-games-api</h2>
@@ -602,6 +626,26 @@ environment:
           href="https://github.com/simplworld/simpl-blackjack-ui/blob/master/frontend/js/index.js">frontend/js/index.js</a>
       </section>
 
+      <section>
+        <h3>React entrace point</h3>
+        <pre><code class="hljs javascript" data-line-numbers="13">
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import { Provider } from 'react-redux';
+  import store from './store/store';
+  import App from './app';
+  import '../scss/main.scss';
+
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('app')
+  );
+        </code></pre>
+        <a class="file"
+          href="https://github.com/simplworld/simpl-blackjack-ui/blob/master/frontend/js/index.js">frontend/js/index.js</a>
+      </section>
       <section data-background="#004785">
         <h3>Setup simpl-blackjack-model</h3>
         <pre><code class="hljs">
@@ -630,9 +674,59 @@ $ docker-compose up
       </section>
 
       <section data-background="#004785">
+        <h3>Running the model</h3>
+        <pre><code class="hljs">
+  python manage.py run_modelservice
+          </code></pre>
+        <p>Provided by <span class="code">simpl-modelservice</span></p>
+        <p>Launches Crossbar and Model for us</p>
+      </section>
 
+      <section data-background="#004785">
+        <h3>Model Entrance</h3>
+        <pre><code class="hljs python">
+from modelservice.games import Period
+from modelservice.games import subscribe
+
+class BlackjackPeriod(Period):
+    @subscribe
+    async def submit_decision(self, action, **kwargs):
+          ...
+        </code></pre>
+        <p>Corresponds to a publish on <span class="code"
+            style="font-size: 1.5rem">world.simpl.sims.blackjack.model.period.1.submit_decision</span></p>
+      </section>
+
+      <section data-background="#004785">
+        <h3>Redux Action &rarr; Model</h3>
+        <pre><code class="hljs javascript">
+  // Javascript frontend
+  submitDecision(1, "hit")
+        </code></pre>
+
+        <pre><code class="hljs javascript">
+  // Autobahn Call
+  AutobahnReact.publish(
+    `model:model.period.${period.id}.submit_decision`,
+    [action]
+  )
+          </code></pre>
+
+        <pre><code class="hljs python">
+  # Python model
+  BlackjackPeriod.submit_decision(action="hit")
+        </code></pre>
+      </section>
+
+      <section data-background="#004785">
         <h1>Connect UI to Model</h1>
       </section>
+
+      <section data-background="#004785">
+        <h1>DEMO</h1>
+        <a href="https://blackjack.simpl.world">https://blackjack.simpl.world</a>
+      </section>
+
     </div>
   </div>
 
