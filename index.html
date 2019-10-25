@@ -719,6 +719,37 @@ class BlackjackPeriod(Period):
       </section>
 
       <section data-background="#004785">
+        <h3>Review BlackjackPeriod</h3>
+        <a href="https://github.com/simplworld/simpl-blackjack-model/blob/master/game/games.py"
+          class="file">games/games.py</a>
+      </section>
+
+      <section data-background="#004785">
+        <h3>Our Main Data Model</h3>
+        <pre><code class="hljs python">
+  {
+    "deck": [],
+    "player_cards": [],
+    "dealer_cards": [],
+    "player_score": 0,
+    "dealer_score": 0,
+    "player_busted": False,
+    "dealer_busted": False,
+    "push": false,
+    "player_done": False,
+    "dealer_done": False,
+  }
+    </code></pre>
+        <p>For each Player Decision a new Result in this format containing the current state of play is created.</p>
+      </section>
+
+      <section data-background="#004785">
+        <h3>Review Model</h3>
+        <a href="https://github.com/simplworld/simpl-blackjack-model/blob/master/game/model.py"
+          class="file">games/model.py</a>
+      </section>
+
+      <section data-background="#004785">
         <h1>Connect UI to Model</h1>
       </section>
 
