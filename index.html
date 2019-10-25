@@ -66,6 +66,9 @@
         <h1>Simpl Bootcamp</h1>
         <h3>Developing Simpl Applications</h3>
         <img src="images/simpl_logo.png" style="border: none; background: none;" />
+        <p>
+          <a href="https://simplworld.github.io/simpl-bootcamp/">https://simplworld.github.io/simpl-bootcamp/</a>
+        </p>
       </section>
       <section data-background=" #004785">
         <h1>Tech Setup</h1>
@@ -460,6 +463,33 @@ function user(state = {email: null, loggedIn: false}, action) {
       </section>
 
       <section data-background="#004785">
+        <h3>Setup simpl-blackjack-ui</h3>
+        <pre><code class="hljs">
+git clone https://github.com/simplworld/simpl-blackjack-ui.git
+        </code></pre>
+        <pre style="font-size: 32px"><code class="hljs">
+$ cd simpl-blackjack-ui
+$ docker-compose up
+          </code></pre>
+        <p class="small">
+          NOTE: Do not rename the checkout, it must be named
+          <span class="code">simpl-games-ui</span>
+        </p>
+      </section>
+
+      <section data-background="#004785">
+        <h3>UI Configuration</h3>
+        <pre><code class="hljs yaml">
+environment:
+  - DJANGO_SETTINGS_MODULE=blackjack_ui.settings
+  - MODEL_SERVICE_WS=ws://localhost:8080/ws
+  - SIMPL_GAMES_URL=http://api:8000/apis/
+  </code></pre>
+        <a href="https://github.com/simplworld/simpl-blackjack-ui/blob/master/docker-compose.yml"
+          class="file">docker-compose.yaml</a>
+      </section>
+
+      <section data-background="#004785">
         <h1>Dive into React App</h1>
       </section>
 
@@ -569,6 +599,33 @@ function user(state = {email: null, loggedIn: false}, action) {
         </code></pre>
         <a class="file"
           href="https://github.com/simplworld/simpl-blackjack-ui/blob/master/frontend/js/index.js">frontend/js/index.js</a>
+      </section>
+
+      <section data-background="#004785">
+        <h3>Setup simpl-blackjack-model</h3>
+        <pre><code class="hljs">
+git clone https://github.com/simplworld/simpl-blackjack-model.git
+        </code></pre>
+        <pre style="font-size: 32px"><code class="hljs">
+$ cd simpl-blackjack-model
+$ docker-compose up
+          </code></pre>
+        <p class="small">
+          NOTE: Do not rename the checkout, it must be named
+          <span class="code">simpl-games-model</span>
+        </p>
+      </section>
+
+      <section data-background="#004785">
+        <h3>Model Configuration</h3>
+        <pre><code class="hljs yaml">
+  environment:
+  - DJANGO_SETTINGS_MODULE=blackjack_model.settings
+  - SIMPL_GAMES_URL=http://api:8000/apis/
+  - CALLBACK_URL=http://model.backend:8080/callback
+  </code></pre>
+        <a href="https://github.com/simplworld/simpl-blackjack-model/blob/master/docker-compose.yml"
+          class="file">docker-compose.yaml</a>
       </section>
 
       <section data-background="#004785">

@@ -2,6 +2,8 @@
 
 Presentation materials.
 
+[View presentation online](https://simplworld.github.io/simpl-bootcamp/)
+
 ## To work on the presentation
 
 This presentation is using the [reveal.js framework](https://revealjs.com/),
